@@ -1,0 +1,133 @@
+.noteBtn {
+  width: calc(100% - 2px);
+  height: 100%;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.octaveContainer:last-child:first-child:last-child {
+  border-right: 1px solid rgb(170, 170, 170) !important;
+}
+
+.whiteNote {
+  width: calc(100% / 7);
+  height: 100%;
+  border: 1px solid rgb(170, 170, 170);
+  border-right: none;
+}
+
+.blackNote {
+  flex-grow: 1;
+}
+
+.blackNote > button {
+  background: black;
+  color: white;
+}
+
+.noteBtn > div {
+  vertical-align: bottom;
+  display: inline;
+  position: absolute;
+  bottom: 3px;
+  transform: translateX(-50%);
+}
+
+.blackNote > button.enable {
+  color: white;
+  padding: 0px;
+  font-size: 0.8rem;
+  padding: 0.1rem;
+}
+
+.blackSpacer {
+  flex-grow: 0.5;
+  pointer-events: none;
+}
+
+.whiteNote {
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+.notesContainer {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.octaveContainer {
+  display: flex;
+  width: 100%;
+  height: 80px;
+}
+
+.blackNots {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 55%;
+  width: 100%;
+  display: flex;
+}
+
+.whiteNots {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  cursor: pointer;
+}
+
+.pitcherContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.pitchBar {
+  width: calc(100% / 56 * 11.5 - 4px);
+  transform: translateX(2px);
+  transition: all 0.2s ease;
+  height: 4px;
+  border-radius: 2px;
+  margin-top: 5px;
+  background-color: #aee25b;
+}
+
+#piano {
+  max-width: 1600px;
+}
+
+#piano[octave="2"] {
+  max-width: 520px;
+}
+
+#piano[octave="3"] {
+  max-width: 780px;
+}
+
+#piano[octave="4"] {
+  max-width: 1040px;
+}
+
+#piano[octave="5"] {
+  max-width: 1300px;
+}
+
+#piano[octave="6"] {
+  max-width: 1560px;
+}
+
+.octaveContainer {
+  border-right: 1px solid rgb(170, 170, 170);
+}
