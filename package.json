@@ -6,16 +6,22 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@tonejs/piano": "^0.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "serve": "^14.1.2",
+    "tone": "^14.7.77",
+    "web-vitals": "^2.1.4",
+    "webmidi": "^3.0.22"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:https": "HTTPS=true SSL_CRT_FILE=./192.168.68.52.pem SSL_KEY_FILE=192.168.68.52-key.pem react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "serve -s build"
   },
   "eslintConfig": {
     "extends": [
