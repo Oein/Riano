@@ -24,9 +24,20 @@ export default function midi(handler) {
     });
   }
 
+  /**
+   *
+   * @param {WebMidi.MIDIAccess} midiAccess
+   */
   function onMIDISuccess(midiAccess) {
-    for (var input of midiAccess.inputs.values()) {
-      input.onmidimessage = getMIDIMessage;
+    function eventer() {
+      for (var input of midiAccess.inputs.values()) {
+        input.onmidimessage = getMIDIMessage;
+      }
     }
+
+    midiAccess.addEventListener("statechange", (e) => {
+      eventer();
+    });
+    eventer();
   }
 }
