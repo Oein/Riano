@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Riano/static/css/main.3661136b.css",
-    "main.js": "/Riano/static/js/main.9726cef1.js",
+    "main.js": "/Riano/static/js/main.d147406d.js",
     "index.html": "/Riano/index.html",
     "main.3661136b.css.map": "/Riano/static/css/main.3661136b.css.map",
-    "main.9726cef1.js.map": "/Riano/static/js/main.9726cef1.js.map"
+    "main.d147406d.js.map": "/Riano/static/js/main.d147406d.js.map"
   },
   "entrypoints": [
     "static/css/main.3661136b.css",
-    "static/js/main.9726cef1.js"
+    "static/js/main.d147406d.js"
   ]
 }
