@@ -102,7 +102,7 @@ export default function App() {
         >
           {refreshD}
         </div>
-        <PianoContainer octave={4} />
+        <PianoContainer octave={8} />
       </div>
     </>
   );
