@@ -60,7 +60,11 @@ export function midiHandler(msg) {
       note: noteName(msg.key),
       velocity: msg.velocity,
     });
-    document.getElementById(id).style.background = color;
+    try {
+      document.getElementById(id).style.background = color;
+    } catch (e) {
+      console.error("[midiHandler]", `id / ${id}`);
+    }
   }
   if (msg.type === "note_off") {
     piano.keyUp({
