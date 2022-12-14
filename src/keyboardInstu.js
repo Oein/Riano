@@ -51,7 +51,7 @@ export default function initkeyboard() {
     keyboardPitches = [];
   }
   function onPitch() {
-    console.log("[initkeyboard]", "\t[Now pitch]", `\t\t${pitch}`);
+    console.log("[initkeyboard]", "\t[Now pitch]", `\t\t${pitch - 2}`);
     refresh();
     releaseKeyboard();
   }
@@ -77,11 +77,13 @@ export default function initkeyboard() {
     }
     if (k === "Shift1") {
       pitch = Math.max(pitch - 1, 3);
-      return onPitch();
+      onPitch();
+      return;
     }
     if (k === "Shift2") {
       pitch = Math.min(pitch + 1, maxOctave + 1);
-      return onPitch();
+      onPitch();
+      return;
     }
     let p = keyTpitch[e.code.replace("Key", "").toLocaleUpperCase()];
     if (p === undefined) return;
