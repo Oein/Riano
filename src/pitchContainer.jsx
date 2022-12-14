@@ -1,7 +1,6 @@
 import { pitch } from "./keyboardInstu";
 
 export default function PitchContainer({ octave }) {
-  console.log(pitch - 2, octave - 1);
   return (
     <div className="pitcherContainer">
       <div
