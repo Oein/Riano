@@ -67,7 +67,11 @@ export function midiHandler(msg) {
       note: noteName(msg.key),
       velocity: msg.velocity,
     });
-    document.getElementById(id).style.background = null;
+    try {
+      document.getElementById(id).style.background = null;
+    } catch (e) {
+      console.error("[midiHandler]", `id / ${id}`);
+    }
   }
 }
 
