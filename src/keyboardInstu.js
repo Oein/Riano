@@ -48,7 +48,7 @@ export default function initkeyboard() {
       let doc = document.getElementById(`note.${oct}.${pit}`);
       if (doc) doc.style.background = null;
     });
-    while (keyboardPitches.length) keyboardPitches.shift();
+    keyboardPitches = [];
   }
 
   window.onkeydown = (e) => {
@@ -66,13 +66,13 @@ export default function initkeyboard() {
   };
   window.onkeyup = (e) => {
     let k = e.key.toString() + e.location.toString();
-    if (k === " 0") {
+    if (e.code === "Space") {
       releaseKeyboard();
       return;
     }
     if (k === "Shift1") {
       pitch--;
-      pitch = Math.max(pitch, 2);
+      pitch = Math.max(pitch, 3);
       refresh();
       releaseKeyboard();
       return;
