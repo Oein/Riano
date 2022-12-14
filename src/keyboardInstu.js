@@ -32,8 +32,8 @@ export default function initkeyboard() {
   pitch = maxOctave / 2 + 1;
   minPitch = Math.round(4 - maxOctave / 2);
 
-  console.log("[Default pitch]", pitch);
-  console.log("[Min pitch]", minPitch);
+  console.log("[initkeyboard]", "\t[Default pitch]", `\t${pitch}`);
+  console.log("[initkeyboard]", "\t[Min pitch]", `\t\t${minPitch}`);
 
   function releaseKeyboard() {
     keyboardPitches.forEach((v) => {
