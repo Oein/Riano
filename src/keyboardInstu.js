@@ -50,6 +50,11 @@ export default function initkeyboard() {
     });
     keyboardPitches = [];
   }
+  function onPitch() {
+    console.log("[initkeyboard]", "\t[Now pitch]", `\t\t${pitch}`);
+    refresh();
+    releaseKeyboard();
+  }
 
   window.onkeydown = (e) => {
     let p = keyTpitch[e.code.replace("Key", "").toLocaleUpperCase()];
@@ -71,18 +76,12 @@ export default function initkeyboard() {
       return;
     }
     if (k === "Shift1") {
-      pitch--;
-      pitch = Math.max(pitch, 3);
-      refresh();
-      releaseKeyboard();
-      return;
+      pitch = Math.max(pitch - 1, 3);
+      return onPitch();
     }
     if (k === "Shift2") {
-      pitch++;
-      pitch = Math.min(pitch, maxOctave + 1);
-      refresh();
-      releaseKeyboard();
-      return;
+      pitch = Math.min(pitch + 1, maxOctave + 1);
+      return onPitch();
     }
     let p = keyTpitch[e.code.replace("Key", "").toLocaleUpperCase()];
     if (p === undefined) return;
