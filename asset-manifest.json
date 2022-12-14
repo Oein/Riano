@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Riano/static/css/main.3661136b.css",
-    "main.js": "/Riano/static/js/main.18fa63c0.js",
+    "main.css": "/Riano/static/css/main.4d056855.css",
+    "main.js": "/Riano/static/js/main.35327c93.js",
     "index.html": "/Riano/index.html",
-    "main.3661136b.css.map": "/Riano/static/css/main.3661136b.css.map",
-    "main.18fa63c0.js.map": "/Riano/static/js/main.18fa63c0.js.map"
+    "main.4d056855.css.map": "/Riano/static/css/main.4d056855.css.map",
+    "main.35327c93.js.map": "/Riano/static/js/main.35327c93.js.map"
   },
   "entrypoints": [
-    "static/css/main.3661136b.css",
-    "static/js/main.18fa63c0.js"
+    "static/css/main.4d056855.css",
+    "static/js/main.35327c93.js"
   ]
 }
