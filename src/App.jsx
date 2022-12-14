@@ -91,8 +91,8 @@ export default function App() {
   useEffect(() => {
     midi(midiHandler);
     initkeyboard();
-    piano.toDestination();
     piano.load().then(() => {
+      piano.toDestination();
       loadX(false);
     });
     refresh();
