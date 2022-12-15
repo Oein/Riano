@@ -5,6 +5,7 @@ export default function BlackNote({ octave, pitch, enable }) {
   return (
     <div className="blackNote" id={`note.bc.${octave}.${pitch}`}>
       <button
+        aria-label={`black note ${octave} octave ${pitch} pitch`}
         className="noteBtn"
         id={`note.${octave}.${pitch}`}
         onMouseDown={() => {

@@ -41,6 +41,7 @@ export default function WhiteNote({ octave, pitch, enable }) {
   return (
     <div className="whiteNote" id={`note.${octave}.${pitch}`}>
       <button
+        aria-label={`white note ${octave} octave ${pitch} pitch`}
         className="noteBtn"
         onMouseDown={() => {
           midiHandler({
