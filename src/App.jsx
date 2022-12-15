@@ -8,7 +8,7 @@ import initMouse from "./mousestate";
 import { useEffect, useState } from "react";
 
 import PianoContainer from "./piano/piano";
-import Load from "./Load";
+import Load from "./load/Load";
 
 import { loaded } from "tone";
 import inst from "./inst";
