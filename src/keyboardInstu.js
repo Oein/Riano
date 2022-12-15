@@ -1,5 +1,6 @@
-import { midiHandler, refresh } from "./App";
-import { maxOctave } from "./piano";
+import { refresh } from "./App";
+import { midiHandler } from "./inst/handler";
+import { maxOctave } from "./piano/piano";
 
 let keyTpitch = {
   A: 0,
@@ -25,9 +26,9 @@ let keyTpitch = {
 
 export let pitch = maxOctave / 2 + 1;
 export let minPitch = Math.round(4 - maxOctave / 2);
-
 export default function initkeyboard() {
   let keyboardPitches = [];
+  let pressedKeys = [];
 
   pitch = maxOctave / 2 + 1;
   minPitch = Math.round(4 - maxOctave / 2);
@@ -40,7 +41,7 @@ export default function initkeyboard() {
       midiHandler({
         key: v + (minPitch - 1) * 12,
         type: "note_off",
-        vol: 88,
+        vol: translate(88),
       });
 
       let pit = v % 12;
@@ -49,16 +50,28 @@ export default function initkeyboard() {
       if (doc) doc.style.background = null;
     });
     keyboardPitches = [];
+    pressedKeys = [];
   }
   function onPitch() {
     console.log("[initkeyboard]", "\t[Now pitch]", `\t\t${pitch - 2}`);
     refresh();
     releaseKeyboard();
   }
+  function translate(x) {
+    // x = 0 ~ 127 -> 0 ~ 1
+    return x / 127;
+  }
+  function removeFromArray(arr, ele) {
+    let idx = arr.indexOf(ele);
+    if (idx !== -1) arr.splice(idx, 1);
+  }
+  document.onkeypress = (e) => {
+    console.log(pressedKeys, keyboardPitches);
 
-  window.onkeydown = (e) => {
     let p = keyTpitch[e.code.replace("Key", "").toLocaleUpperCase()];
     if (p === undefined) return;
+    if (pressedKeys.includes(p)) return;
+    pressedKeys.push(p);
 
     if (keyboardPitches.indexOf(12 * pitch + p) === -1)
       keyboardPitches.push(12 * pitch + p);
@@ -66,10 +79,12 @@ export default function initkeyboard() {
     midiHandler({
       key: 12 * pitch + p + (minPitch - 1) * 12,
       type: "note_on",
-      vol: 88,
+      vol: translate(88),
     });
+
+    return true;
   };
-  window.onkeyup = (e) => {
+  document.onkeyup = (e) => {
     let k = e.key.toString() + e.location.toString();
     if (e.code === "Space") {
       releaseKeyboard();
@@ -88,13 +103,13 @@ export default function initkeyboard() {
     let p = keyTpitch[e.code.replace("Key", "").toLocaleUpperCase()];
     if (p === undefined) return;
 
-    let idx = keyboardPitches.indexOf(12 * pitch + p);
-    if (idx > -1) keyboardPitches.splice(idx, 1);
+    removeFromArray(pressedKeys, p);
+    removeFromArray(keyboardPitches, 12 * pitch + p);
 
     midiHandler({
       key: 12 * pitch + p + (minPitch - 1) * 12,
       type: "note_off",
-      vol: 88,
+      vol: translate(88),
     });
   };
 }

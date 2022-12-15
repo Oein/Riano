@@ -1,4 +1,4 @@
-import { pitch } from "./keyboardInstu";
+import { pitch } from "./../keyboardInstu";
 
 export default function PitchContainer({ octave }) {
   return (

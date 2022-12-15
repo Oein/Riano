@@ -1,4 +1,4 @@
-import { minPitch, pitch } from "./keyboardInstu";
+import { minPitch, pitch } from "./../keyboardInstu";
 import NoteContainer from "./notesContainer";
 
 const arr = [0, 1, 2, 3, 4, 5, 6, 7];

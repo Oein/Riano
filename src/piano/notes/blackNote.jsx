@@ -1,46 +1,12 @@
-import { midiHandler, mouseDown } from "./App";
+import { midiHandler } from "../../inst/handler";
+import { mouseDown } from "./../../mousestate";
 
-export default function WhiteNote({ octave, pitch, enable }) {
-  function getKey() {
-    if (enable === 2) {
-      switch (pitch) {
-        case 1:
-          return "A";
-        case 3:
-          return "S";
-        case 5:
-          return "D";
-        case 6:
-          return "F";
-        case 8:
-          return "G";
-        case 10:
-          return "H";
-        case 12:
-          return "J";
-        default:
-      }
-    }
-    if (enable === 1) {
-      switch (pitch) {
-        case 1:
-          return "K";
-        case 3:
-          return "L";
-        case 5:
-          return ";";
-        case 6:
-          return "'";
-        default:
-      }
-    }
-
-    return null;
-  }
+export default function BlackNote({ octave, pitch, enable }) {
   return (
-    <div className="whiteNote" id={`note.${octave}.${pitch}`}>
+    <div className="blackNote" id={`note.bc.${octave}.${pitch}`}>
       <button
         className="noteBtn"
+        id={`note.${octave}.${pitch}`}
         onMouseDown={() => {
           midiHandler({
             type: "note_on",
@@ -71,7 +37,27 @@ export default function WhiteNote({ octave, pitch, enable }) {
             });
         }}
       >
-        <div>{getKey()}</div>
+        <div>
+          {enable === 2
+            ? pitch === 2
+              ? "W"
+              : pitch === 4
+              ? "E"
+              : pitch === 7
+              ? "T"
+              : pitch === 9
+              ? "Y"
+              : "U"
+            : enable === 1
+            ? pitch === 2
+              ? "O"
+              : pitch === 4
+              ? "P"
+              : pitch === 7
+              ? "]"
+              : null
+            : null}
+        </div>
       </button>
     </div>
   );

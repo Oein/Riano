@@ -1,6 +1,6 @@
-import BlackNote from "./blackNote";
-import BlackSpacer from "./blackNoteSpacer";
-import WhiteNote from "./whiteNote";
+import BlackNote from "./notes/blackNote";
+import BlackSpacer from "./notes/blackNoteSpacer";
+import WhiteNote from "./notes/whiteNote";
 
 export default function NoteContainer({ octave, enable }) {
   return (
