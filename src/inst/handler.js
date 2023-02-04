@@ -37,6 +37,7 @@ export function midiHandler(msg) {
   if (k === 12) color = "#EA57B2";
 
   if (msg.type === "note_on") {
+    inst.triggerRelease([noteName(msg.key)], 0, msg.vol);
     inst.triggerAttack([noteName(msg.key)], 0, msg.vol);
     try {
       document.getElementById(id).style.background = color;
